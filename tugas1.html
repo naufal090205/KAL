@@ -418,18 +418,6 @@ Dilakukan dengan menggunakan Operasi Baris Elementer (OBE).
 Substitusi Balik (Backward Substitution)</p>
 <p>Digunakan untuk menyelesaikan sistem persamaan setelah terbentuk eselon baris.
 Dimulai dari baris terakhir dan bergerak ke atas.</p>
-<p>###Eliminasi Gauss Jordan</p>
-<p>metode dalam aljabar linear yang merupakan penyempurnaan dari Eliminasi Gauss. Metode ini mengubah matriks menjadi bentuk eselon baris tereduksi (Reduced Row Echelon Form / RREF) menggunakan Operasi Baris Elementer (OBE).</p>
-<p>Perbedaan utama dengan Eliminasi Gauss adalah:</p>
-<p>Eliminasi Gauss hanya membentuk eselon baris (elemen nol hanya di bawah pivot).
-Eliminasi Gauss-Jordan melanjutkan eliminasi hingga eselon baris tereduksi, yaitu elemen di atas dan di bawah pivot menjadi nol sehingga solusi langsung terlihat.
-Tahapan Eliminasi Gauss-Jordan
-Membentuk Eselon Baris Tereduksi
-Sama seperti Eliminasi Gauss, tetapi dilanjutkan hingga pivot bernilai 1 dan elemen di atasnya juga nol.
-Normalisasi Pivot
-Setiap pivot dibuat bernilai 1 dengan membagi barisnya dengan nilai pivot.
-Membentuk Nol di Atas Pivot
-Menggunakan operasi baris untuk membuat elemen di atas pivot menjadi nol, sehingga matriks berbentuk identitas (jika memungkinkan).</p>
 <p>###contoh soal 1
 Selesaikan dengan menggunakan eleminasi gauss</p>
 <div class="math notranslate nohighlight">
@@ -444,9 +432,9 @@ x_3+x_2&amp;=2
 Langkah 1: Tulis dalam Bentuk Matriks Augmented
 Bentuk matriks augmented dari sistem ini adalah:
 \begin{bmatrix}
-1 &amp; 2 &amp; 3 &amp; | 6 \
-2 &amp; 4 &amp; 6 &amp; | 12 \
-0 &amp; 1 &amp; 1 &amp; | 2
+1&amp;2&amp;3&amp;|6\
+2&amp;4&amp;6&amp;|12\
+0&amp;1&amp;1&amp;|2
 \end{bmatrix}</p>
 <p>Langkah 2: Eliminasi Baris
 Kita akan menghilangkan elemen di bawah elmen utama di kolom pertama, gunakan operasi:</p>
@@ -456,32 +444,32 @@ R_2 \rightarrow R_2 - 2R_1
 <p>sehingga:</p>
 <p><br />
 \begin{bmatrix}
-1 &amp; 2 &amp; 3 &amp; | 6 \
-0 &amp; 0 &amp; 0 &amp; | 0 \
-0 &amp; 1 &amp; 1 &amp; | 2
+1&amp;2&amp;3&amp;|6\
+0&amp;0&amp;0&amp;|0\
+0&amp;1&amp;1&amp;|2
 \end{bmatrix}</p>
 <p>Langkah 3: Interpretasi baris kedua dirubah menjadi <em>0 = 0</em></p>
 <p>\begin{aligned}
-x_1 + 2x_2 + 3x_3 &amp;= 6 \
-x_2 + x_3 &amp;= 2
+x_1+2x_2+3x_3&amp;=6\
+x_2+x_3&amp;=2
 \end{aligned}</p>
 <p>langkah 4: substitusi dari persamaan kedua :</p>
 <p>\begin{array}{cc}
-x_2 = 2 - x_3
+x_2=2-x_3
 \end{array}</p>
 <p>substitusikan ke persamaan pertama:</p>
 <p>\begin{array}{cc}
-x_1 + 2(2 - x_3) + 3x_3&amp; = 6\
-x_1 + 4 - 2x_3 + 3x_3&amp; = 6\
-x_1 + 4 + x_3&amp; = 6\
-X_1 =&amp; 2 - x_3
+x_1+2(2-x_3)+3x_&amp;=6\
+x_1+4-2x_3+3x_3&amp;=6\
+x_1+4+x_3&amp;=6\
+X_1=&amp;2-x_3
 \end{array}</p>
 <p>kesimpulan
 solusi umum dari sistem ini adalah:</p>
 <p>\begin{aligned}
-x_1 &amp;= 2 - x_3 \
-x_2 &amp;= 2 - x_3 \
-x_3 &amp;= X_3
+x_1&amp;=2-x_3\
+x_2&amp;=2-x_3\
+x_3&amp;=X_3
 \end{aligned}</p>
 <section id="contoh-soal-2">
 <h1>contoh soal 2<a class="headerlink" href="#contoh-soal-2" title="Link to this heading">#</a></h1>
@@ -496,77 +484,77 @@ x_1+2x_2&amp;=3
 <p>penyelesaian
 langkah 1 : tulis dalam bentuk matriks augmented</p>
 <p>\begin{bmatrix}
-1 &amp; 1 &amp; 1 &amp; | 3 \
-2 &amp; 0 &amp; 1 &amp; | 5 \
-1 &amp; 2 &amp; 1 &amp; | 3
+1&amp;1&amp;1&amp;|3\
+2&amp;0&amp;1&amp;|5\
+1&amp;2&amp;1&amp;|3
 \end{bmatrix}</p>
 <p>langkah 2:eliminasi baris kita akan menghilangkan elemen di bawah elemen utama di kolom pertama.</p>
 <p>\begin{array}{cc}
-R_2 \rightarrow R_2 - 2R_1
+R_2\rightarrow R_2 - 2R_1
 \end{array}</p>
 <p>\begin{array}{cc}
-R_3 \rightarrow R_3 - R_1
+R_3\rightarrow R_3 - R_1
 \end{array}</p>
 <p>sehingga matriks berubah menjadi:</p>
 <p>\begin{bmatrix}
-1 &amp; 1 &amp; 1 &amp; | 3 \
-0 &amp; -2 &amp; -1 &amp; | -1 \
-0 &amp; 1 &amp; -1 &amp; | 0
+1&amp;1&amp;1&amp;|3\
+0&amp;-2&amp;-1&amp;|-1\
+0&amp;1&amp;-1&amp;|0
 \end{bmatrix}</p>
 <p>selanjutnya, buat elemen utama di baris kedua menjadi 1 dengan membagi baris kedua dengan -2:</p>
 <p>\begin{array}{cc}
-R_2 \rightarrow \frac{R_2}{-2}
+R_2\rightarrow\frac{R_2}{-2}
 \end{array}</p>
 <p>hasilnya:</p>
 <p>\begin{bmatrix}
-1 &amp; 1 &amp; 1 &amp; | 3 \
-0 &amp; 1 &amp; \frac{1}{2} &amp; | \frac{1}{2} \
-0 &amp; 1 &amp; -1 &amp; | 0
+1&amp;1&amp;1&amp;|3\
+0&amp;1&amp;\frac{1}{2}&amp;|\frac{1}{2}\
+0&amp;1&amp;-1&amp;|0
 \end{bmatrix}</p>
 <p>kemudian eliminasi elemen di bawah elemen utama dengan:</p>
 <p>\begin{array}{cc}
-R_3 \rightarrow R_3 - R_2
+R_3\rightarrow R_3-R_2
 \end{array}</p>
 <p>sehingga diperoleh:
 \begin{bmatrix}
-1 &amp; 1 &amp; 1 &amp; | 3 \
-0 &amp; 1 &amp; \frac{1}{2} &amp; | \frac{1}{2} \
-0 &amp; 0 &amp; -\frac{3}{2} &amp; | -\frac{1}{2}
+1&amp;1&amp;1&amp;|3\
+0&amp;1&amp;\frac{1}{2}&amp;|\frac{1}{2}\
+0&amp;0&amp;-\frac{3}{2}&amp;|-\frac{1}{2}
 \end{bmatrix}
 langkah 3: substitusi balik*
 dari baris ketiga:</p>
 <p>\begin{array}{cc}
--\frac{3}{2} x_3 = -\frac{1}{2}
+-\frac{3}{2}x_3=-\frac{1}{2}
 \end{array}</p>
 <p>\begin{array}{cc}
-x_3 = \frac{1}{3}
+x_3=\frac{1}{3}
 \end{array}</p>
 <p>dari baris kedua :</p>
 <p>\begin{array}{cc}
-x_2 + \frac{1}{2} x_3 = \frac{1}{2}
+x_2+\frac{1}{2}x_3=\frac{1}{2}
 \end{array}</p>
 <p>\begin{array}{cc}
-x_2 + \frac{1}{2} \times \frac{1}{3} = \frac{1}{2}
+x_2+\frac{1}{2}\times\frac{1}{3}=\frac{1}{2}
 \end{array}</p>
 <p>\begin{array}{cc}
-x_2 + \frac{1}{6} = \frac{1}{2}
+x_2+\frac{1}{6}=\frac{1}{2}
 \end{array}</p>
 <p>\begin{array}{cc}
-x_2 + \frac{1}{6} - \frac{1}{6} =  \frac{3}{6} - \frac{1}{6} = \frac{2}{6} = \frac{1}{3}
+x_2+\frac{1}{6}-\frac{1}{6}=\frac{3}{6}-\frac{1}{6}=\frac{2}{6}=\frac{1}{3}
 \end{array}</p>
 <p>dari baris pertama:
 \begin{array}{cc}
-x_1 + x_2 + x_3 = 3
+x_1+x_2+x_3=3
 \end{array}</p>
 <p>\begin{array}{cc}
-x_1 = - \frac{2}{3} = \frac{9}{3} - \frac{2}{3} = \frac{7}{3}
+x_1=-\frac{2}{3}=\frac{9}{3}-\frac{2}{3}=\frac{7}{3}
 \end{array}</p>
 <p>kesimpulan
 jadi, solusi dari sistem persamaan adalah:
 \begin{aligned}
-x_1 &amp;= \frac{7}{3} \
-x_2 &amp;= \frac{1}{3} \
-x_3 &amp;= \frac{1}{3}
+x_1&amp;=\frac{7}{3}\
+x_2&amp;=\frac{1}{3}\
+x_3&amp;=\frac{1}{3}
 \end{aligned}</p>
 </section>
 <section id="contoh-soal-3">
@@ -581,39 +569,39 @@ x_1+x_2&amp;=2
 <p>penyelesaian
 langkah 1 : menyelesaikan ke bentuk matriks augmented</p>
 <p>\begin{bmatrix}
-2 &amp; 2 &amp;  | 4 \
-1 &amp; 1 &amp;  | 2 \
+2&amp;2&amp;|4\
+1&amp;1&amp;|2\
 \end{bmatrix}</p>
 <p>langkah 2 : membuat elemen di bawah pivot menjadi nol.</p>
 <p>\begin{array}{cc}
-R_1 \leftarrow R_1 - 2R_2
+R_1\leftarrow R_1-2R_2
 \end{array}</p>
 <p>setelah melakukan perhitungan kita mendapatkan :</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{bmatrix}
-R_1: 2 - 2 \cdot 1 = 0\\
-2 - 2 \cdot 1 = 0\\
-4 - 2 \cdot 2 = 0
+R_1: 2 - 2 \cdot 1=0\\
+2-2\cdot 1=0\\
+4-2\cdot 2=0
 \end{bmatrix}
 \end{split}\]</div>
 <p>sehingaa matriks augmented menjadi :</p>
 <p>\begin{bmatrix}
-1 &amp; 1 &amp; | 2 \
-0 &amp; 0 &amp; | 0
+1&amp;1&amp;|2\
+0&amp;0&amp;|0
 \end{bmatrix}</p>
 <p>dari baris kedua, kita dapat mengekspresikan (x_1) dalam bentuk (x_2) :</p>
 <p>\begin{bmatrix}
-x_1 + x_2 = 2 \rightarrow x_1 = 2 - x_2
+x_1+x_2=2\rightarrow x_1=2-x_2
 \end{bmatrix}</p>
 <p>karena kita memiliki satu persamaan dengan dua variabel,kita dapat menyagakan solusi dalam bentuk parameter.misalkan (x_2 = t), maka:</p>
 <p>\begin{array}{cc}
-x_1 = 2- t
+x_1=2-t
 \end{array}</p>
 <p>jadi, solusi umum dari sistem persamaan ini adalah :</p>
 <p>\begin{cases}
-x_1 = 2 - t\
-x_2 = t
+x_1=2-t\
+x_2=t
 \end{cases}</p>
 <p>di mana (t) adalah parameter bebas.</p>
 </section>
@@ -631,27 +619,27 @@ x_1+2x_3&amp;=6\\
 <li><p>tulis sistem persamaan dalam bentuk matriks augmented :</p></li>
 </ol>
 <p>\begin{bmatrix}
-1 &amp; 1 &amp; 0 &amp; | &amp; 5 \
-1 &amp; 0 &amp; 2 &amp; | &amp; 4
+1&amp;1&amp;0&amp;|&amp;5\
+1&amp;0&amp;2&amp;|&amp;4
 \end{bmatrix}</p>
 <ol class="arabic simple" start="2">
 <li><p>lakukan operasi baris untuk mendapatkan bentuk eselon baris:</p></li>
 </ol>
 <p>\begin{array}{cc}
-R_2 \rightarrow R_2
+R_2\rightarrow R_2
 \end{array}</p>
 <p>Hasilnya :</p>
 <p>\begin{bmatrix}
-1 &amp; 1 &amp; 0 &amp; | &amp; 5 \
-0 &amp; -1 &amp; 2 &amp; | &amp; -1
+1&amp;1&amp;0&amp;|&amp;5\
+0&amp;-1&amp;2&amp;|&amp;-1
 \end{bmatrix}</p>
 <p>\begin{array}{cc}
-R_2 \rightarrow \frac{R_2}{-1}
+R_2\rightarrow\frac{R_2}{-1}
 \end{array}</p>
 <p>hasilnya :</p>
 <p>\begin{bmatrix}
-1 &amp; 1 &amp; 0 &amp; | &amp; 5 \
-0 &amp; 1 &amp; -2 &amp; | &amp; 1
+1&amp;1&amp;0&amp;|&amp;5\
+0&amp;1&amp;-2&amp;|&amp;1
 \end{bmatrix}</p>
 <ol class="arabic simple" start="3">
 <li><p>lakukan subtitusi mundur untuk menemukan solusi:</p></li>
@@ -660,25 +648,25 @@ R_2 \rightarrow \frac{R_2}{-1}
 <li><p>dari baris 2:</p></li>
 </ul>
 <p>\begin{array}{cc}
-x_1 + x_2 = 2 \rightarrow x_1 = 2 - x_2
+x_1+x_2=2\rightarrow x_1=2-x_2
 \end{array}</p>
 <ul class="simple">
 <li><p>dari baris 1:</p></li>
 </ul>
 <p>\begin{array}{cc}
-x_1 + x_2 = 5 \implies x_1 + (1 + 2x_3) = 5 \implies x_1 = 4 - 2x_3
+x_1+x_2=5\implies x_1+(1+2x_3)=5\implies x_1=4-2x_3
 \end{array}</p>
 <ol class="arabic simple" start="4">
 <li><p>solusi akhir :</p></li>
 </ol>
 <p>\begin{aligned}
-x_1 &amp;= 4 - 2x_3 \
-x_2 &amp;= 1 + 2x_3 \
-x_3 &amp;= x_3
+x_1&amp;=4-2x_3\
+x_2&amp;=1+2x_3\
+x_3&amp;=x_3
 \end{aligned}</p>
 <p>jadi, solusi dari sistem persamaan adalah:</p>
 <p>\begin{array}{cc}
-\left(x_1, x_2, x_3\right) = \left(4 - 2t, 1 + 2t,t\right), \quad t \in \mathbb{r}
+\left(x_1,x_2,x_3\right)=\left(4-2t,1+2t,t\right),\quad t\in\mathbb{r}
 \end{array}</p>
 <p>sistem ini memiliki banyak solusi karena terdapat parameter bebas <span class="math notranslate nohighlight">\(( t )\)</span>.</p>
 </section>
