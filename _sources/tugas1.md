@@ -3,7 +3,7 @@ title: Untitled
 
 ---
 
-###Operasi Baris Elementer 
+### Operasi Baris Elementer 
 
 teknik dalam aljabar linear yang digunakan untuk mengubah matriks melalui serangkaian operasi tanpa mengubah solusi sistem persamaan linear yang diwakilinya. OBE sering digunakan dalam metode eliminasi Gauss dan Gauss-Jordan untuk menyelesaikan sistem persamaan linear serta mencari invers matriks.
 
@@ -24,7 +24,7 @@ Menambahkan kelipatan suatu baris ke baris lain.
 Notasi: Ri → Ri + krj (menambahkan k kali baris ke-j kebaris ke-i).
 
 
-###Eliminasi Gauss 
+### Eliminasi Gauss 
 
 metode dalam aljabar linear yang digunakan untuk menyelesaikan sistem persamaan linear dengan mengubah matriks koefisien menjadi bentuk eselon baris menggunakan Operasi Baris Elementer (OBE).
 
@@ -45,7 +45,7 @@ Dimulai dari baris terakhir dan bergerak ke atas.
 
 
 
-###contoh soal 1
+### contoh soal 1
 Selesaikan dengan menggunakan eleminasi gauss
 
 $$
