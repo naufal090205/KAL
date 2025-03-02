@@ -97,10 +97,10 @@ x_2=2-x_3
 substitusikan ke persamaan pertama:
 
 \begin{array}{cc}
-x_1+2(2-x_3)+3x_&=6\\
-x_1+4-2x_3+3x_3&=6\\
-x_1+4+x_3&=6\\
-X_1=&2-x_3
+x_1+ 2(2-x_3)+3x_3&=6\\
+x_1+ 4-2x_3 +3x_3&=6\\
+x_1+ 4 +x_3&=6\\
+x_1=& 2-x_3
 \end{array}
 
 kesimpulan 
