@@ -46,6 +46,7 @@ Dimulai dari baris terakhir dan bergerak ke atas.
 
 
 ### contoh soal 1
+
 Selesaikan dengan menggunakan eleminasi gauss
 
 $$
@@ -114,23 +115,23 @@ x_3&=X_3
 
 ### contoh soal 2 
 selesaikan dengan menggunakan eliminasi gauss
-$$
+$
 \begin{array}{cc}
 x_1+x_2+x_3&=3\\
 2x_1+x_3&=5\\
 x_1+2x_2&=3
 \end{array}
-$$
+$
 
 penyelesaian
 langkah 1 : tulis dalam bentuk matriks augmented
-
+$
 \begin{bmatrix}
 1&1&1&|3\\
 2&0&1&|5\\
 1&2&1&|3
 \end{bmatrix}
-
+$
 langkah 2:eliminasi baris kita akan menghilangkan elemen di bawah elemen utama di kolom pertama.
 
 \begin{array}{cc}
@@ -142,13 +143,13 @@ R_3\rightarrow R_3 - R_1
 \end{array}
 
 sehingga matriks berubah menjadi:
-
+$
 \begin{bmatrix}
 1&1&1&|3\\
 0&-2&-1&|-1\\
 0&1&-1&|0
 \end{bmatrix}
-
+$
 selanjutnya, buat elemen utama di baris kedua menjadi 1 dengan membagi baris kedua dengan -2:
 
 \begin{array}{cc}
