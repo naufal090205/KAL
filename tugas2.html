@@ -402,6 +402,17 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-mathbf-x-a-1-mathbf-b"><em>3. Menghitung <span class="math notranslate nohighlight">\( \mathbf{x} = A^{-1} \mathbf{b} \)</span></em></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#determinan-matrik">Determinan Matrik</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#minor-matrik">Minor Matrik</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cofactor-matrik">Cofactor Matrik</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mencari-determinan-dengan-konsep-minor-dan-cofactor-matrik-berikan-contoh-matrik-3-times-3-4-times-4-dan-5-times-5">Mencari determinan dengan konsep minor dan cofactor matrik. Berikan contoh matrik <span class="math notranslate nohighlight">\(3 \times 3\)</span>, <span class="math notranslate nohighlight">\(4 \times 4\)</span>, dan <span class="math notranslate nohighlight">\(5 \times 5\)</span> <br/><br/></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#determinan-matrik-3-times-3">1. Determinan Matrik <span class="math notranslate nohighlight">\(3 \times 3\)</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#determinan-matrik-4-times-4">2. Determinan Matrik <span class="math notranslate nohighlight">\(4 \times 4\)</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#determinan-matrik-5-times-5">3. Determinan Matrik <span class="math notranslate nohighlight">\(5 \times 5\)</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -726,6 +737,225 @@ x_1 = 1, \quad x_2 = 2, \quad x_3 = 1
 \)</span></p>
 </section>
 </section>
+<section id="determinan-matrik">
+<h2>Determinan Matrik<a class="headerlink" href="#determinan-matrik" title="Link to this heading">#</a></h2>
+<p>Determinan matrik adalah suatu nilai skalar yang dihitung dari elemen-elemen dalam matrik persegi. Determinan matrik hanya dapat dicari dengan matrik persegi.</p>
+<section id="minor-matrik">
+<h3>Minor Matrik<a class="headerlink" href="#minor-matrik" title="Link to this heading">#</a></h3>
+<p>Minor matrik adalah determinan dari submatrik yang diperoleh dengan menghapus baris dan kolom tertentu dari matrik aslinya. Minor digunakan dalam perhitungan cofactor dan determinan matrik berukuran lebih besar.</p>
+</section>
+<section id="cofactor-matrik">
+<h3>Cofactor Matrik<a class="headerlink" href="#cofactor-matrik" title="Link to this heading">#</a></h3>
+<p>Cofactor matrik adalah matrik baru yang elemen-elemennya dalah cofactor dari matrik asalnya, yang diperoleh dengan mengalikan minor elemen matrik dengan
+<span class="math notranslate nohighlight">\((-1)^{i+j}\)</span> . Cofactor digunakan dalam menghitung determinan dan invers matrik.</p>
+</section>
+<section id="mencari-determinan-dengan-konsep-minor-dan-cofactor-matrik-berikan-contoh-matrik-3-times-3-4-times-4-dan-5-times-5">
+<h3>Mencari determinan dengan konsep minor dan cofactor matrik. Berikan contoh matrik <span class="math notranslate nohighlight">\(3 \times 3\)</span>, <span class="math notranslate nohighlight">\(4 \times 4\)</span>, dan <span class="math notranslate nohighlight">\(5 \times 5\)</span> <br><br><a class="headerlink" href="#mencari-determinan-dengan-konsep-minor-dan-cofactor-matrik-berikan-contoh-matrik-3-times-3-4-times-4-dan-5-times-5" title="Link to this heading">#</a></h3>
+<section id="determinan-matrik-3-times-3">
+<h4>1. Determinan Matrik <span class="math notranslate nohighlight">\(3 \times 3\)</span><a class="headerlink" href="#determinan-matrik-3-times-3" title="Link to this heading">#</a></h4>
+<p><span class="math notranslate nohighlight">\(
+A = \begin{bmatrix}
+2 &amp; 3 &amp; 1 \\
+4 &amp; 5 &amp; 6 \\
+7 &amp; 8 &amp; 9
+\end{bmatrix}
+\)</span></p>
+<p><strong>Menentukan determinan menggunakan ekspansi baris pertama :</strong></p>
+<p><span class="math notranslate nohighlight">\(
+\det(A) = 2C_{11} - 3C_{12} + 1C_{13}
+\)</span></p>
+<ul class="simple">
+<li><p><strong>Minor dan Kofaktor:</strong></p></li>
+</ul>
+<p>Minor <span class="math notranslate nohighlight">\(M_{11}\)</span> adalah determinan dari submatriks yang diperoleh dengan menghapus baris 1 dan kolom 1:</p>
+<p><span class="math notranslate nohighlight">\(\begin{aligned}
+   M_{11} &amp;= \begin{vmatrix} 5 &amp; 6 \\ 8 &amp; 9 \end{vmatrix} \\
+          &amp;= (5 \times 9) - (6 \times 8) \\
+          &amp;= 45 - 48 \\
+          &amp;= -3
+\end{aligned}\)</span></p>
+<p>Cofactor :</p>
+<p><span class="math notranslate nohighlight">\(\begin{aligned}
+    C_{11} &amp;= (-1)^{1+1} M_{11} \\
+           &amp;= (-1)^2 (-3) \\
+           &amp;= -3
+\end{aligned}\)</span></p>
+<p>Minor <span class="math notranslate nohighlight">\(M_{12}\)</span> adalah determinan dari submatriks yang diperoleh dengan menghapus baris 1 dan kolom 2:</p>
+<p><span class="math notranslate nohighlight">\(\begin{aligned}
+   M_{12} &amp;= \begin{vmatrix} 4 &amp; 6 \\ 7 &amp; 9  \end{vmatrix} \\
+          &amp;= (4 \times 9) - (6 \times 7) \\
+          &amp;= 36 - 42 \\
+          &amp;= -6
+\end{aligned}\)</span></p>
+<p>Cofaktor:</p>
+<p><span class="math notranslate nohighlight">\(\begin{aligned}
+    C_{12} &amp;= (-1)^{1+2} M_{12} \\
+           &amp;= (-1)^3 (-6) \\
+           &amp;= 6
+\end{aligned}\)</span></p>
+<p>Minor <span class="math notranslate nohighlight">\(M_{13}\)</span> adalah determinan dari submatriks yang diperoleh dengan menghapus baris 1 dan kolom 3:</p>
+<p><span class="math notranslate nohighlight">\(\begin{aligned}
+   M_{13} &amp;= \begin{vmatrix} 4 &amp; 5 \\ 7 &amp; 8  \end{vmatrix} \\
+          &amp;= (4 \times 8) - (5 \times 7) \\
+          &amp;= 32 - 35 \\
+          &amp;= -3
+\end{aligned}\)</span></p>
+<p>Kofaktor:</p>
+<p><span class="math notranslate nohighlight">\(\begin{aligned}
+    C_{13} &amp;= (-1)^{1+3} M_{13} \\
+           &amp;= (-1)^4 (-3) \\
+           &amp;= -3
+\end{aligned}\)</span></p>
+<ul class="simple">
+<li><p><strong>Determinan</strong></p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(
+\det(A) = a_{11}C_{11} - a_{12}C_{12} + a_{13}C_{13}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\begin{aligned}
+    \det(A) &amp;= (2 \times -3) - (3 \times 6) + (1 \times -3) \\
+            &amp;= -6 - 18 - 3 \\
+            &amp;= -27
+\end{aligned}\)</span></p>
+</section>
+<section id="determinan-matrik-4-times-4">
+<h4>2. Determinan Matrik <span class="math notranslate nohighlight">\(4 \times 4\)</span><a class="headerlink" href="#determinan-matrik-4-times-4" title="Link to this heading">#</a></h4>
+<p><span class="math notranslate nohighlight">\(
+B = \begin{bmatrix}
+1 &amp; 2 &amp; 3 &amp; 4 \\
+2 &amp; 3 &amp; 4 &amp; 3 \\
+3 &amp; 4 &amp; 1 &amp; 2 \\
+4 &amp; 3 &amp; 2 &amp; 1
+\end{bmatrix}
+\)</span></p>
+<p><strong>Menentukan determinan menggunakan ekspansi baris pertama :</strong></p>
+<p><span class="math notranslate nohighlight">\(
+\det(B) = 1C_{11} - 2C_{12} + 3C_{13} - 4C_{14}
+\)</span></p>
+<ul class="simple">
+<li><p><strong>Minor dan Kofaktor:</strong></p></li>
+</ul>
+<p>Minor <span class="math notranslate nohighlight">\(M_{11}\)</span> :</p>
+<p><span class="math notranslate nohighlight">\(\begin{aligned}
+   M_{11} &amp;= \begin{vmatrix} 1 &amp; 4 &amp; 3 \\ 4 &amp; 1 &amp; 2 \\ 3 &amp; 2 &amp; 1 \\  \end{vmatrix} \\
+          &amp;= 1 (1 \times 1 - 2 \times 2) - 4 (4 \times 1 - 2 \times 3) + 3 (4 \times 2 - 1 \times 3) \\
+          &amp;= 1 (1 - 4) - 4 (4 - 6) + 3 (8 - 3) \\
+          &amp;= 1 (-3) - 4 (-2) + 3 (5)\\
+          &amp;= -3 + 8 + 15\\
+          &amp;= 20
+\end{aligned}\)</span></p>
+<p>Cofactor :</p>
+<p><span class="math notranslate nohighlight">\(\begin{aligned}
+    C_{11} &amp;= (-1)^{1+1} M_{20} \\
+           &amp;= (-1)^2 (20) \\
+           &amp;= 20
+\end{aligned}\)</span></p>
+<p>Minor <span class="math notranslate nohighlight">\(M_{12}\)</span> :</p>
+<p><span class="math notranslate nohighlight">\(\begin{aligned}
+   M_{12} &amp;= \begin{vmatrix} 2 &amp; 4 &amp; 3 \\ 3 &amp; 1 &amp; 2 \\ 2 &amp; 2 &amp; 1 \\  \end{vmatrix} \\
+          &amp;= 2 (1 \times 1 - 2 \times 2) - 4 (3 \times 1 - 2 \times 4) + 3 (3 \times 2 - 1 \times 4) \\
+          &amp;= 2 (1 - 4) - 4 (3 - 8) + 3 (6 - 4) \\
+          &amp;= 2 (-3) - 4 (-5) + 3 (2)\\
+          &amp;= -6 + 20 + 6\\
+          &amp;= -20
+\end{aligned}\)</span></p>
+<p>Cofactor :</p>
+<p><span class="math notranslate nohighlight">\(\begin{aligned}
+    C_{12} &amp;= (-1)^{1+2} M_{20} \\
+           &amp;= (-1)^3 (20) \\
+           &amp;= -20
+\end{aligned}\)</span></p>
+<p>Minor <span class="math notranslate nohighlight">\(M_{13}\)</span> :</p>
+<p><span class="math notranslate nohighlight">\(\begin{aligned}
+   M_{13} &amp;= \begin{vmatrix}  2 &amp; 1 &amp; 3 \\ 3 &amp; 4 &amp; 2 \\ 4 &amp; 3 &amp; 1 \\ \end{vmatrix} \\
+          &amp;= 2 (4 \times 1 - 2 \times 3) - 1 (3 \times 1 - 2 \times 4) + 3 (3 \times 3 - 3 \times 4 - 4) \\
+          &amp;= 2 (4 - 6) - 1 (3 - 8) + 3 (9 - 16) \\
+          &amp;= 2 (-2) - 1 (-5) + 3 (-7)\\
+          &amp;= -4 + 5 - 21\\
+          &amp;= -20
+\end{aligned}\)</span></p>
+<p>Cofactor :</p>
+<p><span class="math notranslate nohighlight">\(\begin{aligned}
+    C_{13} &amp;= (-1)^{1+3} M_{-20} \\
+           &amp;= (-1)^4 (-20) \\
+           &amp;= -20
+\end{aligned}\)</span></p>
+<p>Minor <span class="math notranslate nohighlight">\(M_{14}\)</span> :</p>
+<p><span class="math notranslate nohighlight">\(\begin{aligned}
+   M_{14} &amp;= \begin{vmatrix}  2 &amp; 1 &amp; 4 \\ 3 &amp; 4 &amp; 1 \\ 4 &amp; 3 &amp; 2 \\ \end{vmatrix} \\
+          &amp;= 2 (4 \times 2 - 1 \times 3) - 1 (3 \times 2 - 1 \times 4) + 4 (3 \times 3 - 4 \times 4 ) \\
+          &amp;= 2 (8 - 3) - 1 (6 - 4) + 4 (9 - 16) \\
+          &amp;= 2 (5) - 1 (2) + 4 (-7)\\
+          &amp;= 10 - 2 - 28\\
+          &amp;= -20
+\end{aligned}\)</span></p>
+<p>Cofactor :</p>
+<p><span class="math notranslate nohighlight">\(\begin{aligned}
+    C_{14} &amp;= (-1)^{1+4} M_{-20} \\
+           &amp;= (-1)^5 (-20) \\
+           &amp;= 20
+\end{aligned}\)</span></p>
+<ul class="simple">
+<li><p><strong>Determinan</strong></p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(
+\det(B) = 1C_{11} - 2C_{12} + 3C_{13} - 4C_{14}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\begin{aligned}
+    \det(B) &amp;= (1 \times 20) - (2 \times -20) + (3 \times -20) - (4 \times 20)\\
+            &amp;= 20 + 40 - 60 - 80 \\
+            &amp;= -80
+\end{aligned}\)</span></p>
+</section>
+<section id="determinan-matrik-5-times-5">
+<h4>3. Determinan Matrik <span class="math notranslate nohighlight">\(5 \times 5\)</span><a class="headerlink" href="#determinan-matrik-5-times-5" title="Link to this heading">#</a></h4>
+<p><span class="math notranslate nohighlight">\(
+C = \begin{bmatrix}
+1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 \\
+6 &amp; 7 &amp; 8 &amp; 9 &amp; 10 \\
+11 &amp; 12 &amp; 13 &amp; 14 &amp; 15 \\
+16 &amp; 17 &amp; 18 &amp; 19 &amp; 20 \\
+21 &amp; 22 &amp; 23 &amp; 24 &amp; 25
+\end{bmatrix}
+\)</span></p>
+<p><strong>Menentukan determinan menggunakan ekspansi baris pertama :</strong></p>
+<p><span class="math notranslate nohighlight">\(
+\det(C) = 1C_{11} - 2C_{12} + 3C_{13} - 4C_{14} - 5C_{15}
+\)</span></p>
+<ul class="simple">
+<li><p><strong>Minor dan Kofaktor:</strong></p></li>
+</ul>
+<p>Minor <span class="math notranslate nohighlight">\(M_{11}\)</span> :</p>
+<p><span class="math notranslate nohighlight">\(M_{11} = \begin{vmatrix} 7 &amp; 8 &amp; 9 &amp; 10 \\ 12 &amp; 13 &amp; 14 &amp; 15 \\ 17 &amp; 18 &amp; 19 &amp; 20 \\ 22 &amp; 23 &amp; 24 &amp; 25 \end{vmatrix}\)</span></p>
+<p>Kita hitung minor <span class="math notranslate nohighlight">\(3 \times 3\)</span></p>
+<p><span class="math notranslate nohighlight">\(\begin{aligned}
+   M_{11} &amp;= \begin{vmatrix}  13 &amp; 14 &amp; 15 \\ 18 &amp; 19 &amp; 20 \\ 23 &amp; 24 &amp; 25 \end{vmatrix} \\
+          &amp;= 13 (19 \times 25 - 20 \times 24) - 14 (18 \times 25 - 20 \times 23) + 15 (18 \times 24 - 19 \times 23) \\
+          &amp;= 13 (475 - 480) - 14 (450 - 460) + 15 (432 - 437) \\
+          &amp;= 13 (-5) - 14 (-10) + 15 (-5)\\
+          &amp;= -65 + 140 -75\\
+          &amp;= 0
+\end{aligned}\)</span></p>
+<p>Cofactor :</p>
+<p><span class="math notranslate nohighlight">\(\begin{aligned}
+    C_{11} &amp;= (-1)^{1+1} M_{20} \\
+           &amp;= (-1)^2 (0) \\
+           &amp;= 0
+\end{aligned}\)</span></p>
+<ul class="simple">
+<li><p><strong>Determinan</strong></p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(
+\det(C) = 1C_{11} - 2C_{12} + 3C_{13} - 4C_{14} + 5C_{15}
+\)</span></p>
+<p>Karena setiap minor dari baris pertama menghasilkan determinan 0, maka :</p>
+<p><span class="math notranslate nohighlight">\(\begin{aligned}
+    \det(C) &amp;= 1 (0) - 2 (0) + 3 (0) - 4 (0) + 5 (0)\\
+            &amp;= 0
+\end{aligned}\)</span></p>
+</section>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -798,6 +1028,17 @@ x_1 = 1, \quad x_2 = 2, \quad x_3 = 1
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bentuk-matriks"><em>1. Bentuk Matriks</em></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-a-1-menggunakan-operasi-baris-elementer"><em>2. Menentukan <span class="math notranslate nohighlight">\( A^{-1} \)</span> Menggunakan Operasi Baris Elementer</em></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-mathbf-x-a-1-mathbf-b"><em>3. Menghitung <span class="math notranslate nohighlight">\( \mathbf{x} = A^{-1} \mathbf{b} \)</span></em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#determinan-matrik">Determinan Matrik</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#minor-matrik">Minor Matrik</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cofactor-matrik">Cofactor Matrik</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mencari-determinan-dengan-konsep-minor-dan-cofactor-matrik-berikan-contoh-matrik-3-times-3-4-times-4-dan-5-times-5">Mencari determinan dengan konsep minor dan cofactor matrik. Berikan contoh matrik <span class="math notranslate nohighlight">\(3 \times 3\)</span>, <span class="math notranslate nohighlight">\(4 \times 4\)</span>, dan <span class="math notranslate nohighlight">\(5 \times 5\)</span> <br/><br/></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#determinan-matrik-3-times-3">1. Determinan Matrik <span class="math notranslate nohighlight">\(3 \times 3\)</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#determinan-matrik-4-times-4">2. Determinan Matrik <span class="math notranslate nohighlight">\(4 \times 4\)</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#determinan-matrik-5-times-5">3. Determinan Matrik <span class="math notranslate nohighlight">\(5 \times 5\)</span></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
