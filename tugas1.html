@@ -1,0 +1,1066 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Operasi Baris Elementer &#8212; Komputasi Aljabar Linier</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tugas1';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Matrix" href="tugas2.html" />
+    <link rel="prev" title="Sistem Persamaan linier" href="pers.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/foto.jpg" class="logo__image only-light" alt="Komputasi Aljabar Linier - Home"/>
+    <script>document.write(`<img src="_static/foto.jpg" class="logo__image only-dark" alt="Komputasi Aljabar Linier - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Selamat Datang di Website Saya
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="pers.html">Sistem Persamaan linier</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Operasi Baris Elementer</a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="tugas2.html">Matrix</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Ftugas1.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/tugas1.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Operasi Baris Elementer</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Operasi Baris Elementer</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eliminasi-gauss">Eliminasi Gauss</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-soal-1">Contoh Soal 1</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-soal-2">Contoh Soal 2</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-soal-3">Contoh Soal 3</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#soal-minggu-kemaren">Soal Minggu kemaren</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#solusi-akhir"><em>5. Solusi Akhir</em></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-soal-4">Contoh Soal 4</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="operasi-baris-elementer">
+<h1>Operasi Baris Elementer<a class="headerlink" href="#operasi-baris-elementer" title="Link to this heading">#</a></h1>
+<p>Operasi Baris Elementer (OBE) adalah serangkaian operasi yang digunakan untuk memanipulasi baris dalam matriks tanpa mengubah solusi dari sistem persamaan linear yang direpresentasikan oleh matriks tersebut. OBE sering digunakan dalam metode eliminasi Gauss dan Gauss-Jordan untuk menyelesaikan sistem persamaan linear, mencari invers matriks, dan menentukan determinan.</p>
+<ol class="arabic simple">
+<li><p>Pertukaran Baris (Row Swapping)</p></li>
+<li><p>Perkalian Baris dengan Skalar (Row Scaling)</p></li>
+<li><p>Penjumlahan Baris (Row Addition/Subtraction)</p></li>
+</ol>
+<p>Operasi-operasi ini digunakan untuk mengubah matriks ke dalam bentuk eselon baris atau eselon baris tereduksi, yang mempermudah penyelesaian sistem persamaan linear.</p>
+</section>
+<section id="eliminasi-gauss">
+<h1>Eliminasi Gauss<a class="headerlink" href="#eliminasi-gauss" title="Link to this heading">#</a></h1>
+<p>Eliminasi Gauss adalah metode yang digunakan untuk menyelesaikan sistem persamaan linear dengan mengubah matriks yang merepresentasikan sistem tersebut menjadi bentuk eselon baris melalui Operasi Baris Elementer (OBE). Metode ini juga digunakan dalam perhitungan invers matriks dan determinan.
+Tahapan Eliminasi Gauss</p>
+<p>Eliminasi Gauss dilakukan dalam dua tahap utama:</p>
+<p>1.Eliminasi Maju (Forward Elimination)</p>
+<ul class="simple">
+<li><p>Mengubah matriks menjadi bentuk eselon baris (row echelon form).</p></li>
+<li><p>Elemen-elemen di bawah diagonal utama dijadikan nol.</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>Substitusi Mundur (Back Substitution)</p></li>
+</ol>
+<ul class="simple">
+<li><p>Menyelesaikan sistem persamaan dari baris terakhir ke baris pertama untuk mendapatkan nilai variabel.</p></li>
+</ul>
+</section>
+<section id="contoh-soal-1">
+<h1>Contoh Soal 1<a class="headerlink" href="#contoh-soal-1" title="Link to this heading">#</a></h1>
+<p>Selesaikan dengan menggunakan eleminasi gauss</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{cc}
+x_1+2x_2+3x_3&amp;=6\\
+2x_1+4x_2+6x_3&amp;=12\\
+x_3+x_2&amp;=2
+\end{array}
+\end{split}\]</div>
+<p>Penyelesaian
+Langkah 1: Tulis dalam Bentuk Matriks Augmented
+Bentuk matriks augmented dari sistem ini adalah:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+1&amp;2&amp;3&amp;|6\\
+2&amp;4&amp;6&amp;|12\\
+0&amp;1&amp;1&amp;|2
+\end{bmatrix}
+\end{split}\]</div>
+<p>Langkah 2: Eliminasi Baris
+Kita akan menghilangkan elemen di bawah elemen utama di kolom pertama. Gunakan operasi:</p>
+<p>\begin{array}{cc}
+R_2\rightarrow R_2-R_1
+\end{array}</p>
+<p>Sehingga:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+1&amp;2&amp;3&amp;|6\\
+0&amp;0&amp;0&amp;|0\\
+0&amp;1&amp;1&amp;|2
+\end{bmatrix}
+\end{split}\]</div>
+<p>Langkah 3: Interpretasi
+Baris kedua dirubah menjadi 0=0</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+x_1+2x_2+3x_3 &amp;= 6\\
+x_2+x_3&amp;=2
+\end{aligned}
+\end{split}\]</div>
+<p>Langkah 4: Substitusi
+Dari persamaan kedua:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{array}{cc}
+x_2=2-x_3
+\end{array}
+\]</div>
+<p>Substitusikan ke persamaan pertama:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{cc}
+x_1+ 2(2-x_3)+3x_3&amp;=6\\
+x_1+ 4-2x_3 +3x_3&amp;=6\\
+x_1+ 4 +x_3&amp;=6\\
+x_1=&amp; 2-x_3
+\end{array}
+\end{split}\]</div>
+<p>Kesimpulan
+Solusi umum dari sistem ini adalah:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+x_1 &amp;=2-x_3\\
+x_2 &amp;=2-x_3\\
+x_3&amp;=x_3
+\end{aligned}
+\end{split}\]</div>
+</section>
+<section id="contoh-soal-2">
+<h1>Contoh Soal 2<a class="headerlink" href="#contoh-soal-2" title="Link to this heading">#</a></h1>
+<p>Selesaikan dengan menggunakan eliminasi gauss</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{cc}
+x_1+x_2+x_3&amp;=3\\
+2x_1+x_3&amp;=5\\
+x_1+2x_2&amp;=3
+\end{array}
+\end{split}\]</div>
+<p>Penyelesaian
+Langkah 1: Tulis dalam Bentuk Matriks Augmented</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+1&amp;1&amp;1&amp;|3\\
+2&amp;0&amp;1&amp;|5\\
+1&amp;2&amp;0&amp;|3
+\end{bmatrix}
+\end{split}\]</div>
+<p>Langkah 2: Eliminasi Baris
+Kita akan menghilangkan elemen di bawah elemen utama di kolom pertama.</p>
+<p>\begin{array}{cc}
+R_2\rightarrow R_2-2R_1
+\end{array}</p>
+<p>\begin{array}{cc}
+R_3\rightarrow R_3-R_1
+\end{array}</p>
+<p>Sehingga matriks berubah menjadi:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+1&amp;1&amp;1&amp;|3\\
+0&amp;-2&amp;-1&amp;|-1\\
+0&amp;1&amp;-1&amp;|0
+\end{bmatrix}
+\end{split}\]</div>
+<p>Selanjutnya, buat elemen utama di baris kedua menjadi 1 dengan membagi baris kedua dengan -2:</p>
+<p>\begin{array}{cc}
+R_2\rightarrow\frac{R_2}{-2}
+\end{array}</p>
+<p>Hasilnya:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+1&amp;1&amp;1&amp;|3\\
+0&amp;1&amp;\frac{1}{2}&amp;|\frac{1}{2}\\
+0&amp;1&amp;-1&amp;|0
+\end{bmatrix}
+\end{split}\]</div>
+<p>Kemudian eliminasi elemen di bawah elemen utama dengan:</p>
+<p>\begin{array}{cc}
+R_3\rightarrow R_3-R_2
+\end{array}</p>
+<p>Sehingga diperoleh:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+1&amp;1&amp;1&amp;|3\\
+0&amp;1&amp;\frac{1}{2}&amp;|\frac{1}{2} \\
+0&amp;0&amp;-\frac{3}{2}&amp;|-\frac{1}{2}
+\end{bmatrix}
+\end{split}\]</div>
+<p>Langkah 3: Substitusi Balik*
+Dari baris ketiga:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{array}{cc}
+-\frac{3}{2}x_3=-\frac{1}{2}
+\end{array}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\begin{array}{cc}
+x_3=\frac{1}{3}
+\end{array}
+\]</div>
+<p>Dari baris kedua:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{array}{cc}
+x_2+\frac{1}{2}x_3=\frac{1}{2}
+\end{array}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\begin{array}{cc}
+x_2 +\frac{1}{2}\times\frac{1}{3}=\frac{1}{2}
+\end{array}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\begin{array}{cc}
+x_2+\frac{1}{6}=\frac{1}{2}
+\end{array}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\begin{array}{cc}
+x_2=\frac{1}{2}-\frac{1}{6}=\frac{3}{6}-\frac{1}{6}=\frac{2}{6}=\frac{1}{3}
+\end{array}
+\]</div>
+<p>Dari baris pertama:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{array}{cc}
+x_1+x_2+x_3=3
+\end{array}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\begin{array}{cc}
+x_1+\frac{1}{3}+\frac{1}{3}=3
+\end{array}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\begin{array}{cc}
+x_1=3-\frac{2}{3}=\frac{9}{3}-\frac{2}{3}=\frac{7}{3}
+\end{array}
+\]</div>
+<p>Kesimpulan
+Jadi, solusi dari sistem persamaan adalah:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+x_1&amp;=\frac{7}{3}\\
+x_2&amp;=\frac{1}{3}\\
+x_3&amp;=\frac{1}{3}
+\end{aligned}
+\end{split}\]</div>
+</section>
+<section id="contoh-soal-3">
+<h1>Contoh Soal 3<a class="headerlink" href="#contoh-soal-3" title="Link to this heading">#</a></h1>
+<p>Selesaikan dengan menggunakan eliminasi gauss</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{cc}
+2x_1+2x_2&amp;=4\\
+x_1+x_2&amp;=2
+\end{array}
+\end{split}\]</div>
+<p>Penyelesaian
+Langkah 1 : Menyelesaikan ke bentuk matriks augmented</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix} 
+2&amp;2&amp;|4\\ 
+1&amp;1&amp;|2 
+\end{bmatrix}
+\end{split}\]</div>
+<p>Langkah 2 : membuat elemen di bawah pivot menjadi nol.</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{array}{cc}
+R_1\leftarrow R_1-2R_2
+\end{array}
+\]</div>
+<p>Setelah melakukan perhitungan kita mendapatkan :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{cc}
+R_1:2-2\cdot1=0\\
+2-2\cdot1=0\\
+4-2\cdot2=0
+\end{array}
+\end{split}\]</div>
+<p>Sehingga matriks augmented menjadi :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix} 
+1&amp;1&amp;|2\\
+0&amp;0&amp;|0 
+\end{bmatrix}
+\end{split}\]</div>
+<p>Dari baris kedua, kita dapat mengekspresikan (x_1) dalam bentuk (x_2):</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{array}{cc}
+x_1+x_2=2\Rightarrow x_1=2-x_2
+\end{array}
+\]</div>
+<p>Karena kita memiliki satu persamaan dengan dua variabel, kita dapat menyatakan solusi dalam bentuk parameter. Misalkan (x_2 = t), maka:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{array}{cc}
+x_1 =2-t
+\end{array}
+\]</div>
+<p>Jadi, solusi umum dari sistem persamaan ini adalah:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{cases} 
+x_1=2-t\\
+x_2=t
+\end{cases}
+\end{split}\]</div>
+<p>di mana (t) adalah parameter bebas.</p>
+</section>
+<section id="soal-minggu-kemaren">
+<h1>Soal Minggu kemaren<a class="headerlink" href="#soal-minggu-kemaren" title="Link to this heading">#</a></h1>
+<p><em>Penyelesaian Sistem Persamaan Linear dengan Eliminasi Gauss</em></p>
+<p><em>1. Diketahui Sistem Persamaan Linear:</em></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{split}
+\begin{aligned}
+2x_1 + 3x_2 + 4x_3 &amp;= 9 \\
+3x_1 + 2x_2 + 4x_3 &amp;= 9 \\
+4x_1 + x_2 + x_3 &amp;= 6
+\end{aligned}
+\end{split}
+\end{split}\]</div>
+<p><em>2. Representasi dalam Bentuk Matriks Augmented</em>
+Kita ubah sistem persamaan menjadi bentuk <em>matriks augmented</em>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix} 
+2 &amp; 3 &amp; 4 &amp; | 9 \\ 
+3 &amp; 2 &amp; 4 &amp; | 9 \\ 
+4 &amp; 1 &amp; 1 &amp; | 6 
+\end{bmatrix}
+\end{split}\]</div>
+<p><em>3. Eliminasi Gauss</em>
+Kita akan mengubah matriks augmented menjadi bentuk <em>segitiga atas</em>.</p>
+<p><em>Langkah 1: Normalisasi Baris Pertama</em>
+Kita buat elemen pertama dari kolom pertama menjadi <em>1</em> dengan membagi baris pertama dengan 2:</p>
+<div class="math notranslate nohighlight">
+\[
+R_1 \leftarrow \frac{R_1}{2}
+\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix} 
+1 &amp; 1.5 &amp; 2 &amp; | 4.5 \\ 
+3 &amp; 2 &amp; 4 &amp; | 9 \\ 
+4 &amp; 1 &amp; 1 &amp; | 6 
+\end{bmatrix}
+\end{split}\]</div>
+<p><em>Langkah 2: Eliminasi Elemen di Bawah Pivot Pertama</em>
+Kita buat elemen <em>x_1</em> di baris 2 dan 3 menjadi <em>0</em> dengan operasi:</p>
+<div class="math notranslate nohighlight">
+\[
+R_2 \leftarrow R_2 - 3R_1
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+R_3 \leftarrow R_3 - 4R_1
+\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix} 
+1 &amp; 1.5 &amp; 2 &amp; | 4.5 \\ 
+0 &amp; -2.5 &amp; -2 &amp; | -4.5 \\ 
+0 &amp; -5 &amp; -7 &amp; | -12 
+\end{bmatrix}
+\end{split}\]</div>
+<p><em>Langkah 3: Normalisasi Baris Kedua</em>
+Kita buat elemen diagonal kedua menjadi <em>1</em> dengan membagi baris kedua dengan -2.5:</p>
+<div class="math notranslate nohighlight">
+\[
+R_2 \leftarrow \frac{R_2}{-2.5}
+\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix} 
+1 &amp; 1.5 &amp; 2 &amp; | 4.5 \\ 
+0 &amp; 1 &amp; 0.8 &amp; | 1.8 \\ 
+0 &amp; -5 &amp; -7 &amp; | -12 
+\end{bmatrix}
+\end{split}\]</div>
+<p><em>Langkah 4: Eliminasi Elemen di Bawah Pivot Kedua</em>
+Kita buat elemen <em>x_2</em> di baris ketiga menjadi <em>0</em>:</p>
+<div class="math notranslate nohighlight">
+\[
+R_3 \leftarrow R_3 + 5R_2
+\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix} 
+1 &amp; 1.5 &amp; 2 &amp; | 4.5 \\ 
+0 &amp; 1 &amp; 0.8 &amp; | 1.8 \\ 
+0 &amp; 0 &amp; -3 &amp; | -3 
+\end{bmatrix}
+\end{split}\]</div>
+<p><em>Langkah 5: Normalisasi Baris Ketiga</em>
+Kita buat elemen diagonal ketiga menjadi <em>1</em>:</p>
+<div class="math notranslate nohighlight">
+\[
+R_3 \leftarrow \frac{R_3}{-3}
+\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix} 
+1 &amp; 1.5 &amp; 2 &amp; | 4.5 \\ 
+0 &amp; 1 &amp; 0.8 &amp; | 1.8 \\ 
+0 &amp; 0 &amp; 1 &amp; | 1 
+\end{bmatrix}
+\end{split}\]</div>
+<p><em>4. Substitusi Balik</em>
+Sekarang kita bisa menyelesaikan variabel satu per satu:</p>
+<div class="math notranslate nohighlight">
+\[
+x_3 = 1
+\]</div>
+<p>Substitusi ( x_3 ) ke baris kedua:</p>
+<div class="math notranslate nohighlight">
+\[
+x_2 + 0.8(1) = 1.8
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+x_2 = 1.8 - 0.8 = 1
+\]</div>
+<p>Substitusi ( x_2 ) dan ( x_3 ) ke baris pertama:</p>
+<div class="math notranslate nohighlight">
+\[
+x_1 + 1.5(1) + 2(1) = 4.5
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+x_1 = 4.5 - 1.5 - 2 = 1
+\]</div>
+</section>
+<section id="solusi-akhir">
+<h1><em>5. Solusi Akhir</em><a class="headerlink" href="#solusi-akhir" title="Link to this heading">#</a></h1>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{cases} 
+x_1 = 1 \\ 
+x_2 = 1 \\ 
+x_3 = 1
+\end{cases}
+\end{split}\]</div>
+<section id="contoh-soal-4">
+<h2>Contoh Soal 4<a class="headerlink" href="#contoh-soal-4" title="Link to this heading">#</a></h2>
+<p>Selesaikan dengan menggunakan eliminasi gauss</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{cc}
+x_1+x_2&amp;=5\\
+x_1+2x_3&amp;=6\\
+\end{array}
+\end{split}\]</div>
+<p>Penyelesaian :</p>
+<ol class="arabic simple">
+<li><p>Tulis sistem persamaan dalam bentuk matriks augmented:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+1&amp;1&amp;0&amp;|&amp;5\\
+1&amp;0&amp;2&amp;|&amp;4
+\end{bmatrix}
+\end{split}\]</div>
+<ol class="arabic simple" start="2">
+<li><p>Lakukan operasi baris untuk mendapatkan bentuk eselon baris:</p></li>
+</ol>
+<p>\begin{array}{cc}
+R_2 \rightarrow R_2
+\end{array}</p>
+<p>Hasilnya :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+1&amp;1&amp;0&amp;|&amp;5\\
+0&amp;-1&amp;2&amp;|&amp;-1
+\end{bmatrix}
+\end{split}\]</div>
+<p>\begin{array}{cc}
+R_2\rightarrow\frac{R_2}{-1}
+\end{array}</p>
+<p>Hasilnya :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+1&amp;1&amp;0&amp;|&amp;5\\
+0&amp;1&amp;-2&amp;|&amp;1
+\end{bmatrix}
+\end{split}\]</div>
+<ol class="arabic simple" start="3">
+<li><p>Lakukan substitusi mundur untuk menemukan solusi:</p></li>
+</ol>
+<ul class="simple">
+<li><p>Dari baris 2:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\begin{array}{cc}
+x_1+x_2=2\Rightarrow x_1=2-x_2
+\end{array}
+\]</div>
+<ul class="simple">
+<li><p>Dari baris 1:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\begin{array}{cc}
+x_1+x_2=5 \implies x_1+(1 + 2x_3) = \implies x_1= 4-2x_3
+\end{array}
+\]</div>
+<ol class="arabic simple" start="4">
+<li><p>Solusi Akhir:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+x_1&amp;=4-2x_3\\
+x_2&amp;=1+2x_3\\
+x_3&amp;=x_3
+\end{aligned}
+\end{split}\]</div>
+<p>Jadi, solusi dari sistem persamaan adalah:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{array}{cc}
+\left(x_1, x_2, x_3\right)=\left(4-2t,1+2t,t\right),\quad t\in\mathbb{R}
+\end{array}
+\]</div>
+<p>Sistem ini memiliki banyak solusi karena terdapat parameter bebas <span class="math notranslate nohighlight">\((t)\)</span>.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="pers.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Sistem Persamaan linier</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="tugas2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Matrix</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Operasi Baris Elementer</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eliminasi-gauss">Eliminasi Gauss</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-soal-1">Contoh Soal 1</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-soal-2">Contoh Soal 2</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-soal-3">Contoh Soal 3</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#soal-minggu-kemaren">Soal Minggu kemaren</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#solusi-akhir"><em>5. Solusi Akhir</em></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-soal-4">Contoh Soal 4</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Muhammad naufal (23-004)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
