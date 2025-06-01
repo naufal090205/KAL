@@ -1,0 +1,791 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Perkalian Titik (Dot Product) &#8212; Komputasi Aljabar Linier</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'DotProduct';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Definisi eigen values dan eigen vaktor" href="eigen.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/foto.jpg" class="logo__image only-light" alt="Komputasi Aljabar Linier - Home"/>
+    <script>document.write(`<img src="_static/foto.jpg" class="logo__image only-dark" alt="Komputasi Aljabar Linier - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Selamat Datang di Website Saya
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="pers.html">Sistem Persamaan linier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tugas1.html">Operasi Baris Elementer</a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="tugas2.html">Matrix</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Transformasi%20linier.html">Transformasi Linier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Refleksi.html">Refleksi</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="eigen.html">Definisi eigen values dan eigen vaktor</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Perkalian Titik (Dot Product)</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FDotProduct.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/DotProduct.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Perkalian Titik (Dot Product)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#materi-dot-product"><strong>Materi Dot Product</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-1-dot-product-2d">Contoh 1: Dot Product 2D</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-2-dot-product-3d">Contoh 2: Dot Product 3D</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-program-dot-product"><strong>Code Program Dot Product</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#materi-satuan-vector"><strong>Materi Satuan Vector</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-perhitungan-manual">Contoh Perhitungan Manual</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-magnitudo-vec-v">1. Hitung Magnitudo <span class="math notranslate nohighlight">\(|\vec{v}|\)</span>:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bagi-setiap-komponen-dengan-magnitudo">2. Bagi setiap komponen dengan magnitudo:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-panjang-vektor-satuan">3. Cek Panjang Vektor Satuan:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-lain-3-dimensi">Contoh Lain (3 Dimensi)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-magnitudo">1. Hitung Magnitudo:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-vektor-satuan">2. Hitung Vektor Satuan:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-program-mengkonversi-vector-menjadi-vector-satuan-vector-memiliki-panjang-vector-1"><strong>Code Program mengkonversi vector menjadi vector satuan (vector memiliki Panjang vector 1)</strong></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="perkalian-titik-dot-product">
+<h1>Perkalian Titik (Dot Product)<a class="headerlink" href="#perkalian-titik-dot-product" title="Link to this heading">#</a></h1>
+<section id="materi-dot-product">
+<h2><strong>Materi Dot Product</strong><a class="headerlink" href="#materi-dot-product" title="Link to this heading">#</a></h2>
+<p><strong>Dot product</strong> adalah operasi matematika antara dua <strong>vektor</strong> yang menghasilkan <strong>nilai skalar</strong> (bukan vektor lagi). Dot product sering digunakan dalam berbagai bidang seperti fisika (untuk menghitung kerja), computer graphics, dan machine learning.</p>
+<p><strong>Rumus Dot Product</strong></p>
+<p>Untuk dua vektor <strong>A</strong> dan <strong>B</strong> berdimensi <span class="math notranslate nohighlight">\(n\)</span>, masing-masing:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{A} = [a_1, a_2, \dots, a_n], \quad \mathbf{B} = [b_1, b_2, \dots, b_n]
+\]</div>
+<p>Maka dot product-nya adalah:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{A} \cdot \mathbf{B} = a_1b_1 + a_2b_2 + \dots + a_nb_n
+\]</div>
+<p>Hasilnya adalah bilangan skalar (tunggal).</p>
+<section id="contoh-1-dot-product-2d">
+<h3>Contoh 1: Dot Product 2D<a class="headerlink" href="#contoh-1-dot-product-2d" title="Link to this heading">#</a></h3>
+<p>Misalkan:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{A} = [5, -1], \quad \mathbf{B} = [2, 3]
+\]</div>
+<p>Maka dot product-nya adalah:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{A} \cdot \mathbf{B} = (5)(2) + (-1)(3) = 10 - 3 = \boxed{7}
+\]</div>
+</section>
+<section id="contoh-2-dot-product-3d">
+<h3>Contoh 2: Dot Product 3D<a class="headerlink" href="#contoh-2-dot-product-3d" title="Link to this heading">#</a></h3>
+<p>Misalkan:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{A} = [-2, 4, 1], \quad \mathbf{B} = [3, 0, -5]
+\]</div>
+<p>Perhitungannya:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{A} \cdot \mathbf{B} = (-2)(3) + (4)(0) + (1)(-5) = -6 + 0 - 5 = \boxed{-11}
+\]</div>
+<p>Dot Product dan Sudut antara Dua Vektor</p>
+<p>Dot product juga dapat digunakan untuk mencari sudut antara dua vektor:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{A} \cdot \mathbf{B} = \|\mathbf{A}\| \|\mathbf{B}\| \cos(\theta)
+\]</div>
+<p>Dengan:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\|\mathbf{A}\|\)</span>: panjang (magnitudo) vektor A</p></li>
+<li><p><span class="math notranslate nohighlight">\(\|\mathbf{B}\|\)</span>: panjang vektor B</p></li>
+<li><p><span class="math notranslate nohighlight">\(\theta\)</span>: sudut antara kedua vektor</p></li>
+</ul>
+<p>Fungsi Dot Product dalam Praktik</p>
+<ul class="simple">
+<li><p>Menentukan apakah dua vektor <strong>tegak lurus (orthogonal)</strong>. Jika <span class="math notranslate nohighlight">\(\mathbf{A} \cdot \mathbf{B} = 0\)</span>, maka vektor A dan B saling tegak lurus.</p></li>
+<li><p>Menilai <strong>kesamaan arah</strong> vektor: hasil dot product positif jika searah, negatif jika berlawanan arah.</p></li>
+<li><p>Dalam machine learning, digunakan dalam <strong>perhitungan kemiripan (similarity)</strong>, misalnya dalam cosine similarity.</p></li>
+</ul>
+</section>
+</section>
+<section id="code-program-dot-product">
+<h2><strong>Code Program Dot Product</strong><a class="headerlink" href="#code-program-dot-product" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">dot_product</span><span class="p">(</span><span class="n">vec1</span><span class="p">,</span> <span class="n">vec2</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">vec1</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">vec2</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Panjang kedua vektor harus sama.&quot;</span><span class="p">)</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">vec1</span><span class="p">,</span> <span class="n">vec2</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">B</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+
+<span class="n">hasil</span> <span class="o">=</span> <span class="n">dot_product</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dot product (2D):&quot;</span><span class="p">,</span> <span class="n">hasil</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">dot_product_3d</span><span class="p">(</span><span class="n">vec1</span><span class="p">,</span> <span class="n">vec2</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">vec1</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">3</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">vec2</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Kedua vektor harus berdimensi 3.&quot;</span><span class="p">)</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">vec1</span><span class="p">,</span> <span class="n">vec2</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">B</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">]</span>
+
+<span class="n">hasil</span> <span class="o">=</span> <span class="n">dot_product_3d</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dot product (3D):&quot;</span><span class="p">,</span> <span class="n">hasil</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dot product (2D): 7
+Dot product (3D): -11
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="materi-satuan-vector">
+<h2><strong>Materi Satuan Vector</strong><a class="headerlink" href="#materi-satuan-vector" title="Link to this heading">#</a></h2>
+<p>Pengertian Vektor Satuan</p>
+<p><strong>Vektor satuan</strong> adalah vektor yang memiliki <strong>panjang (magnitude) sebesar 1</strong>. Vektor satuan menunjukkan <strong>arah</strong> dari suatu vektor tanpa memperhatikan besarannya.</p>
+<p>Misalnya, jika vektor <span class="math notranslate nohighlight">\(\vec{v}\)</span> menunjukkan arah tertentu dengan panjang tertentu, maka <strong>vektor satuan dari <span class="math notranslate nohighlight">\(\vec{v}\)</span></strong> akan menunjukkan arah yang sama, tetapi panjangnya dibuat menjadi 1.</p>
+<p>Rumus Vektor Satuan</p>
+<p>Untuk mengubah sebuah vektor <span class="math notranslate nohighlight">\(\vec{v}\)</span> menjadi vektor satuan <span class="math notranslate nohighlight">\(\hat{v}\)</span>, digunakan rumus:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{v} = \frac{\vec{v}}{|\vec{v}|}
+\]</div>
+<p>di mana:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\vec{v}\)</span> adalah vektor asli</p></li>
+<li><p><span class="math notranslate nohighlight">\(|\vec{v}|\)</span> adalah <strong>magnitudo (panjang)</strong> dari vektor tersebut</p></li>
+<li><p><span class="math notranslate nohighlight">\(\hat{v}\)</span> dibaca sebagai “v topi”, adalah <strong>vektor satuan</strong></p></li>
+</ul>
+<p>Cara Menghitung Magnitudo Vektor</p>
+<p>Untuk vektor dua dimensi <span class="math notranslate nohighlight">\(\vec{v} = \langle x, y \rangle\)</span>, panjang vektor (magnitudo) dihitung dengan:</p>
+<div class="math notranslate nohighlight">
+\[
+|\vec{v}| = \sqrt{x^2 + y^2}
+\]</div>
+<p>Untuk tiga dimensi <span class="math notranslate nohighlight">\(\vec{v} = \langle x, y, z \rangle\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+|\vec{v}| = \sqrt{x^2 + y^2 + z^2}
+\]</div>
+<section id="contoh-perhitungan-manual">
+<h3>Contoh Perhitungan Manual<a class="headerlink" href="#contoh-perhitungan-manual" title="Link to this heading">#</a></h3>
+<p>Misalkan kita punya vektor:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{v} = \langle 6, 8 \rangle
+\]</div>
+</section>
+<section id="hitung-magnitudo-vec-v">
+<h3>1. Hitung Magnitudo <span class="math notranslate nohighlight">\(|\vec{v}|\)</span>:<a class="headerlink" href="#hitung-magnitudo-vec-v" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+|\vec{v}| = \sqrt{6^2 + 8^2} = \sqrt{36 + 64} = \sqrt{100} = 10
+\]</div>
+</section>
+<section id="bagi-setiap-komponen-dengan-magnitudo">
+<h3>2. Bagi setiap komponen dengan magnitudo:<a class="headerlink" href="#bagi-setiap-komponen-dengan-magnitudo" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+\hat{v} = \frac{1}{10} \langle 6, 8 \rangle = ⟨0.6,0.8⟩
+\]</div>
+<p>Jadi, <strong>vektor satuan dari <span class="math notranslate nohighlight">\(\langle 6, 8 \rangle\)</span></strong> adalah:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{v} = \langle 0.6, 0.8 \rangle
+\]</div>
+</section>
+<section id="cek-panjang-vektor-satuan">
+<h3>3. Cek Panjang Vektor Satuan:<a class="headerlink" href="#cek-panjang-vektor-satuan" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+|\hat{v}| = \sqrt{(0.6)^2 + (0.8)^2} = \sqrt{0.36 + 0.64} = \sqrt{1} = 1
+\]</div>
+<p>✅ Terbukti bahwa hasilnya adalah <strong>vektor satuan</strong>, karena panjangnya = 1.</p>
+</section>
+<section id="contoh-lain-3-dimensi">
+<h3>Contoh Lain (3 Dimensi)<a class="headerlink" href="#contoh-lain-3-dimensi" title="Link to this heading">#</a></h3>
+<p>Misalkan:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{a} = \langle -3, 6, 0 \rangle
+\]</div>
+</section>
+<section id="hitung-magnitudo">
+<h3>1. Hitung Magnitudo:<a class="headerlink" href="#hitung-magnitudo" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+|\vec{a}| = \sqrt{(-3^)2 + 6^2 + 0^2} = \sqrt{9 + 36 + 0} = \sqrt{45} = 3\sqrt{5} = 6,708
+\]</div>
+</section>
+<section id="hitung-vektor-satuan">
+<h3>2. Hitung Vektor Satuan:<a class="headerlink" href="#hitung-vektor-satuan" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+\hat{a} = \frac{1} {3\sqrt5} \langle -3, 6, 0 \rangle = \langle \frac{-1} {\sqrt5}, \frac{2}{\sqrt5}, 0 \rangle
+\]</div>
+</section>
+</section>
+<section id="code-program-mengkonversi-vector-menjadi-vector-satuan-vector-memiliki-panjang-vector-1">
+<h2><strong>Code Program mengkonversi vector menjadi vector satuan (vector memiliki Panjang vector 1)</strong><a class="headerlink" href="#code-program-mengkonversi-vector-menjadi-vector-satuan-vector-memiliki-panjang-vector-1" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">magnitude</span><span class="p">(</span><span class="n">vector</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Menghitung panjang (magnitudo) dari vektor&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">sum</span><span class="p">([</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">vector</span><span class="p">]))</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">unit_vector</span><span class="p">(</span><span class="n">vector</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Menghitung vektor satuan dari vektor&quot;&quot;&quot;</span>
+    <span class="n">mag</span> <span class="o">=</span> <span class="n">magnitude</span><span class="p">(</span><span class="n">vector</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">mag</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Vektor nol tidak memiliki arah, tidak bisa dikonversi menjadi vektor satuan.&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">x</span> <span class="o">/</span> <span class="n">mag</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">vector</span><span class="p">]</span>
+
+<span class="c1"># Contoh penggunaan:</span>
+<span class="n">vector_2d</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+<span class="n">vector_3d</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># Hasil vektor satuan</span>
+<span class="n">unit_2d</span> <span class="o">=</span> <span class="n">unit_vector</span><span class="p">(</span><span class="n">vector_2d</span><span class="p">)</span>
+<span class="n">unit_3d</span> <span class="o">=</span> <span class="n">unit_vector</span><span class="p">(</span><span class="n">vector_3d</span><span class="p">)</span>
+
+<span class="c1"># Cetak hasil</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Vektor awal (2D):&quot;</span><span class="p">,</span> <span class="n">vector_2d</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Vektor satuan (2D):&quot;</span><span class="p">,</span> <span class="n">unit_2d</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Magnitudo (2D):&quot;</span><span class="p">,</span> <span class="n">magnitude</span><span class="p">(</span><span class="n">vector_2d</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Vektor awal (3D):&quot;</span><span class="p">,</span> <span class="n">vector_3d</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Vektor satuan (3D):&quot;</span><span class="p">,</span> <span class="n">unit_3d</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Magnitudo (3D):&quot;</span><span class="p">,</span> <span class="n">magnitude</span><span class="p">(</span><span class="n">vector_3d</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektor awal (2D): [6, 8]
+Vektor satuan (2D): [0.6, 0.8]
+Magnitudo (2D): 10.0
+
+Vektor awal (3D): [-3, 6, 0]
+Vektor satuan (3D): [-0.4472135954999579, 0.8944271909999159, 0.0]
+Magnitudo (3D): 6.708203932499369
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="eigen.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Definisi eigen values dan eigen vaktor</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#materi-dot-product"><strong>Materi Dot Product</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-1-dot-product-2d">Contoh 1: Dot Product 2D</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-2-dot-product-3d">Contoh 2: Dot Product 3D</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-program-dot-product"><strong>Code Program Dot Product</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#materi-satuan-vector"><strong>Materi Satuan Vector</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-perhitungan-manual">Contoh Perhitungan Manual</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-magnitudo-vec-v">1. Hitung Magnitudo <span class="math notranslate nohighlight">\(|\vec{v}|\)</span>:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bagi-setiap-komponen-dengan-magnitudo">2. Bagi setiap komponen dengan magnitudo:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-panjang-vektor-satuan">3. Cek Panjang Vektor Satuan:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-lain-3-dimensi">Contoh Lain (3 Dimensi)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-magnitudo">1. Hitung Magnitudo:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-vektor-satuan">2. Hitung Vektor Satuan:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-program-mengkonversi-vector-menjadi-vector-satuan-vector-memiliki-panjang-vector-1"><strong>Code Program mengkonversi vector menjadi vector satuan (vector memiliki Panjang vector 1)</strong></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Muhammad naufal (23-004)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
